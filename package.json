@@ -1,0 +1,9 @@
+{
+  "name": "tuboclair-store",
+  "version": "1.0.0",
+  "description": "Boutique one-product (furet debouche-canalisation) — front statique + Netlify Functions + Stripe Checkout",
+  "private": true,
+  "dependencies": {
+    "stripe": "^16.12.0"
+  }
+}

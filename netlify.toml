@@ -1,0 +1,17 @@
+# Configuration Netlify
+
+[build]
+  # Site statique : rien à compiler, on publie la racine.
+  publish = "."
+  functions = "netlify/functions"
+
+[functions]
+  # Bundle les dépendances (dont stripe) automatiquement.
+  node_bundler = "esbuild"
+
+# Optionnel : petites en-têtes de sécurité.
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
