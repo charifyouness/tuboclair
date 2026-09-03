@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Suivre mon colis — Tuboclair™</title>
+  <meta name="description" content="Suivez votre commande Tuboclair étape par étape. Entrez votre numéro de suivi pour voir où en est votre colis." />
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <a href="/" class="logo" aria-label="Tuboclair, accueil"><span class="logo-tubo">Tubo</span><span class="logo-clair">clair</span><span class="logo-star" aria-hidden="true">✦</span></a>
+    <nav class="header-nav">
+      <a href="avis.html">Avis</a>
+      <a href="suivre-commande.html">Suivre mon colis</a>
+      <a href="/#service">Service</a>
+      <a href="/#offre" class="header-cta">Commander</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="section narrow tracking">
+      <h1 class="page-title">Suivre mon colis</h1>
+      <p class="page-lead">Entrez le numéro de suivi reçu par e-mail à l'expédition de votre commande. Vous verrez l'avancement de votre colis étape par étape.</p>
+
+      <form class="track-form" id="track-form">
+        <input type="text" id="track-number" name="track-number" placeholder="Ex : LX123456789FR" autocomplete="off" required />
+        <button type="submit" class="btn btn-cta">Suivre</button>
+      </form>
+      <p class="track-hint">Le suivi s'ouvre dans un nouvel onglet, sur notre partenaire de suivi multi-transporteurs (17TRACK), qui reconnaît automatiquement La&nbsp;Poste/Colissimo, Mondial&nbsp;Relay, Chronopost, etc.</p>
+
+      <div class="track-help">
+        <h2>Vous n'avez pas encore votre numéro de suivi&nbsp;?</h2>
+        <p>Il vous est envoyé par e-mail <strong>dès l'expédition</strong> (sous 24&nbsp;h après la commande). Si vous ne le trouvez pas, vérifiez vos spams, ou écrivez-nous à <a href="mailto:contact@tuboclair.com" class="inline-link">contact@tuboclair.com</a> avec votre numéro de commande&nbsp;: on vous répond vite.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-cols">
+      <div>
+        <span class="logo footer-logo"><span class="logo-tubo">Tubo</span><span class="logo-clair">clair</span></span>
+        <p class="footer-note">Débouchez vos canalisations vous-même, sans plombier ni produits chimiques.</p>
+      </div>
+      <nav class="footer-links">
+        <a href="suivre-commande.html">Suivre mon colis</a>
+        <a href="avis.html">Avis clients</a>
+        <a href="legal.html#mentions">Mentions légales</a>
+        <a href="legal.html#cgv">CGV</a>
+        <a href="legal.html#confidentialite">Confidentialité</a>
+        <a href="legal.html#retractation">Rétractation</a>
+        <a href="mailto:contact@tuboclair.com">Contact</a>
+      </nav>
+    </div>
+    <p class="copyright">© <span id="year"></span> Tuboclair™. Tous droits réservés.</p>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+    document.getElementById('track-form').addEventListener('submit', function (e) {
+      e.preventDefault();
+      var n = document.getElementById('track-number').value.trim().replace(/\s+/g, '');
+      if (!n) return;
+      // Suivi multi-transporteurs, étape par étape, sans inscription.
+      window.open('https://t.17track.net/fr#nums=' + encodeURIComponent(n), '_blank', 'noopener');
+    });
+  </script>
+</body>
+</html>

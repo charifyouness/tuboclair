@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Avis clients — Tuboclair™</title>
+  <meta name="description" content="Les avis de nos clients sur le déboucheur à tambour Tuboclair. Laissez le vôtre après votre achat, avec photo." />
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <a href="/" class="logo" aria-label="Tuboclair, accueil"><span class="logo-tubo">Tubo</span><span class="logo-clair">clair</span><span class="logo-star" aria-hidden="true">✦</span></a>
+    <nav class="header-nav">
+      <a href="avis.html">Avis</a>
+      <a href="suivre-commande.html">Suivre mon colis</a>
+      <a href="/#service">Service</a>
+      <a href="/#offre" class="header-cta">Commander</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="section reviews-page">
+      <h1 class="page-title">Avis clients</h1>
+
+      <!-- ===== AVIS PUBLIÉS =====
+        Affichez ici vos vrais avis, une fois modérés (voir formulaire plus bas).
+        Dupliquez un bloc .review-card par avis. Ajoutez la photo du client si fournie.
+      -->
+      <div class="reviews-summary">
+        <span class="stars big" aria-hidden="true">★★★★★</span>
+        <span class="reviews-note">Vos premiers avis clients apparaîtront ici.</span>
+      </div>
+
+      <div class="reviews-list">
+        <article class="review-card placeholder-review">
+          <div class="review-stars" aria-hidden="true">★★★★★</div>
+          <p>« [Avis à remplacer par un vrai témoignage client vérifié.] »</p>
+          <footer><cite>— Prénom, ville</cite></footer>
+        </article>
+        <article class="review-card placeholder-review">
+          <div class="review-stars" aria-hidden="true">★★★★★</div>
+          <p>« [Avis à remplacer par un vrai témoignage client vérifié.] »</p>
+          <footer><cite>— Prénom, ville</cite></footer>
+        </article>
+      </div>
+    </section>
+
+    <!-- ===== LAISSER UN AVIS ===== -->
+    <section class="section narrow leave-review">
+      <h2>Laisser un avis</h2>
+      <p class="page-lead">Vous avez reçu votre déboucheur&nbsp;? Partagez votre expérience — avec une photo si vous le souhaitez. Pas besoin de créer un compte&nbsp;: votre <strong>numéro de commande</strong> suffit à vérifier votre achat.</p>
+
+      <!--
+        Formulaire géré par Netlify Forms (aucun serveur à coder) :
+        - Les envois (avec photo) arrivent dans Netlify → onglet "Forms".
+        - Configurez une notification e-mail vers contact@tuboclair.com.
+        - Vous MODÉREZ chaque avis : vous vérifiez le n° de commande, puis vous
+          publiez l'avis en l'ajoutant dans la liste ci-dessus (bloc .review-card).
+        C'est cette vérification manuelle qui rend le "n° de commande obligatoire" utile
+        et garde vos avis authentiques (obligation légale en France).
+      -->
+      <form name="avis" method="POST" data-netlify="true" netlify-honeypot="bot-field"
+            enctype="multipart/form-data" action="/merci-avis.html" class="review-form">
+        <input type="hidden" name="form-name" value="avis" />
+        <p class="hp"><label>Ne pas remplir : <input name="bot-field" /></label></p>
+
+        <div class="field-row">
+          <label class="field">
+            <span>Prénom *</span>
+            <input type="text" name="prenom" required />
+          </label>
+          <label class="field">
+            <span>Ville</span>
+            <input type="text" name="ville" />
+          </label>
+        </div>
+
+        <label class="field">
+          <span>Numéro de commande * <small>(reçu dans votre e-mail de confirmation)</small></span>
+          <input type="text" name="numero_commande" required placeholder="Ex : #1042" />
+        </label>
+
+        <fieldset class="field rating-field">
+          <span class="rating-legend">Votre note *</span>
+          <div class="star-input">
+            <input type="radio" id="s5" name="note" value="5" required /><label for="s5" aria-label="5 étoiles">★</label>
+            <input type="radio" id="s4" name="note" value="4" /><label for="s4" aria-label="4 étoiles">★</label>
+            <input type="radio" id="s3" name="note" value="3" /><label for="s3" aria-label="3 étoiles">★</label>
+            <input type="radio" id="s2" name="note" value="2" /><label for="s2" aria-label="2 étoiles">★</label>
+            <input type="radio" id="s1" name="note" value="1" /><label for="s1" aria-label="1 étoile">★</label>
+          </div>
+        </fieldset>
+
+        <label class="field">
+          <span>Votre avis *</span>
+          <textarea name="avis" rows="5" required placeholder="Racontez votre expérience : le problème que vous aviez, le résultat…"></textarea>
+        </label>
+
+        <label class="field">
+          <span>Ajouter une photo <small>(facultatif)</small></span>
+          <input type="file" name="photo" accept="image/*" />
+        </label>
+
+        <button type="submit" class="btn btn-cta">Envoyer mon avis</button>
+        <p class="form-note">En envoyant votre avis, vous acceptez qu'il soit publié sur cette page après vérification. Voir notre <a href="legal.html#confidentialite" class="inline-link">politique de confidentialité</a>.</p>
+      </form>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-cols">
+      <div>
+        <span class="logo footer-logo"><span class="logo-tubo">Tubo</span><span class="logo-clair">clair</span></span>
+        <p class="footer-note">Débouchez vos canalisations vous-même, sans plombier ni produits chimiques.</p>
+      </div>
+      <nav class="footer-links">
+        <a href="suivre-commande.html">Suivre mon colis</a>
+        <a href="avis.html">Avis clients</a>
+        <a href="legal.html#mentions">Mentions légales</a>
+        <a href="legal.html#cgv">CGV</a>
+        <a href="legal.html#confidentialite">Confidentialité</a>
+        <a href="legal.html#retractation">Rétractation</a>
+        <a href="mailto:contact@tuboclair.com">Contact</a>
+      </nav>
+    </div>
+    <p class="copyright">© <span id="year"></span> Tuboclair™. Tous droits réservés.</p>
+  </footer>
+
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>

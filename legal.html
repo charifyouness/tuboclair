@@ -3,62 +3,119 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Informations légales — TuboClair™</title>
+  <title>Informations légales — Tuboclair™</title>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;600;700;800;900&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
-  <style>
-    .legal{max-width:760px;margin:0 auto;padding:48px 20px 80px}
-    .legal h1{margin-bottom:8px}
-    .legal h2{text-align:left;margin:36px 0 10px;font-size:1.3rem}
-    .legal p,.legal li{color:var(--muted);margin:8px 0}
-    .legal .todo{background:#fff5ec;border:1px solid #f6c99a;border-radius:10px;padding:14px 16px;color:#8a4b16;font-weight:600}
-    .legal a{color:var(--brand);font-weight:700}
-  </style>
 </head>
 <body>
   <header class="site-header">
-    <a href="/" class="brand">TuboClair<span class="tm">™</span></a>
+    <a href="/" class="logo"><span class="logo-tubo">Tubo</span><span class="logo-clair">clair</span><span class="logo-star" aria-hidden="true">✦</span></a>
+    <nav class="header-nav"><a href="/#offre" class="header-cta">Commander</a></nav>
   </header>
 
   <main class="legal">
     <h1>Informations légales</h1>
-    <p class="todo">⚠️ À COMPLÉTER avant la mise en ligne. Ces mentions sont <strong>obligatoires</strong> pour vendre en France (Code de la consommation, LCEN, RGPD). Remplacez tous les [crochets] par vos informations réelles.</p>
+    <p class="todo">⚠️ <strong>À personnaliser avant mise en ligne.</strong> Ce document reprend les mentions obligatoires pour une boutique en France (LCEN, Code de la consommation, RGPD). Remplacez tous les <code>[crochets]</code> par vos informations réelles. Je ne suis pas juriste&nbsp;: pour un usage commercial, faites relire ces textes (notamment les CGV) par un professionnel.</p>
 
+    <nav class="legal-toc">
+      <a href="#mentions">1. Mentions légales</a>
+      <a href="#cgv">2. CGV</a>
+      <a href="#retractation">3. Rétractation</a>
+      <a href="#confidentialite">4. Confidentialité (RGPD)</a>
+      <a href="#cookies">5. Cookies</a>
+    </nav>
+
+    <!-- 1. MENTIONS LÉGALES -->
     <section id="mentions">
       <h2>1. Mentions légales</h2>
-      <p><strong>Éditeur du site :</strong> [Dénomination sociale], [forme juridique, ex. SASU] au capital de [montant] €.</p>
-      <p><strong>Siège social :</strong> [adresse complète]</p>
-      <p><strong>SIREN / SIRET :</strong> [numéro] — <strong>RCS :</strong> [ville + numéro]</p>
-      <p><strong>N° TVA intracommunautaire :</strong> [FR…]</p>
-      <p><strong>Directeur de la publication :</strong> [nom]</p>
-      <p><strong>Contact :</strong> [email] — [téléphone]</p>
-      <p><strong>Hébergeur :</strong> Netlify, Inc., 512 2nd Street, Suite 200, San Francisco, CA 94107, USA.</p>
+      <p><strong>Éditeur du site :</strong> [Dénomination sociale], [forme juridique — ex. SASU] au capital de [montant] €.</p>
+      <p><strong>Siège social :</strong> [adresse complète].</p>
+      <p><strong>Immatriculation :</strong> SIREN [n°] — SIRET [n°] — RCS [ville + n°]. <strong>TVA intracommunautaire :</strong> [FR…].</p>
+      <p><strong>Directeur de la publication :</strong> [prénom nom].</p>
+      <p><strong>Contact :</strong> <a href="mailto:contact@tuboclair.com" class="inline-link">contact@tuboclair.com</a> — [téléphone, facultatif].</p>
+      <p><strong>Hébergeur :</strong> Netlify, Inc., 512 2nd Street, Suite 200, San Francisco, CA 94107, États-Unis — netlify.com.</p>
     </section>
 
+    <!-- 2. CGV -->
     <section id="cgv">
-      <h2>2. Conditions Générales de Vente (CGV)</h2>
-      <p class="todo">Rédigez des CGV complètes (prix TTC, commande, paiement, livraison, garanties légales de conformité et des vices cachés, rétractation, litiges, médiateur de la consommation). Vous pouvez partir d'un modèle fiable puis l'adapter à votre activité.</p>
-      <p>Doivent notamment figurer : les délais et frais de livraison, les modalités de paiement, les garanties légales, et les coordonnées d'un médiateur de la consommation (obligatoire).</p>
+      <h2>2. Conditions Générales de Vente</h2>
+      <p><em>En vigueur au [date]. Le client déclare avoir pris connaissance des présentes CGV et les avoir acceptées avant de passer commande.</em></p>
+
+      <h3>2.1 Objet</h3>
+      <p>Les présentes CGV régissent les ventes de produits réalisées par [Dénomination] via le site [tuboclair.com] auprès de consommateurs (clients non professionnels).</p>
+
+      <h3>2.2 Produits et prix</h3>
+      <p>Les produits proposés sont décrits sur les fiches correspondantes. Les prix sont indiqués en euros, <strong>toutes taxes comprises (TTC)</strong>, hors éventuels frais de livraison précisés avant validation de la commande. [Dénomination] se réserve le droit de modifier ses prix à tout moment, le prix applicable étant celui affiché au moment de la commande.</p>
+
+      <h3>2.3 Commande</h3>
+      <p>La commande est validée après acceptation du paiement. Un e-mail de confirmation récapitulant la commande est envoyé au client. [Dénomination] se réserve le droit d'annuler toute commande en cas de litige de paiement ou de suspicion de fraude.</p>
+
+      <h3>2.4 Paiement</h3>
+      <p>Le paiement s'effectue en ligne par carte bancaire et portefeuilles électroniques via notre prestataire <strong>Stripe</strong>, dans un environnement sécurisé. Aucune donnée de carte bancaire n'est stockée par [Dénomination].</p>
+
+      <h3>2.5 Livraison</h3>
+      <p>Les produits sont expédiés depuis la France à l'adresse indiquée par le client. Délai de livraison estimé&nbsp;: [3 à 4] jours ouvrés après expédition. Les frais de livraison sont [offerts / de … €] et précisés avant paiement. Le transfert des risques intervient à la remise du colis au client. En cas de retard anormal, le client peut nous contacter à <a href="mailto:contact@tuboclair.com" class="inline-link">contact@tuboclair.com</a>.</p>
+
+      <h3>2.6 Droit de rétractation</h3>
+      <p>Le client dispose d'un délai de 14 jours pour se rétracter, dans les conditions détaillées à la <a href="#retractation" class="inline-link">section 3</a>.</p>
+
+      <h3>2.7 Garanties légales</h3>
+      <p>Indépendamment de toute garantie commerciale, [Dénomination] reste tenue de la <strong>garantie légale de conformité</strong> (articles L.217-3 et suivants du Code de la consommation) et de la <strong>garantie des vices cachés</strong> (articles 1641 et suivants du Code civil). Dans le cadre de la garantie légale de conformité, le client dispose d'un délai de deux ans à compter de la délivrance du bien et peut choisir entre la réparation ou le remplacement, sous réserve des conditions de coût prévues par la loi.</p>
+
+      <h3>2.8 Service après-vente et réclamations</h3>
+      <p>Toute réclamation peut être adressée à <a href="mailto:contact@tuboclair.com" class="inline-link">contact@tuboclair.com</a>. Nous nous engageons à répondre dans les meilleurs délais.</p>
+
+      <h3>2.9 Médiation de la consommation</h3>
+      <p>Conformément à l'article L.612-1 du Code de la consommation, le client peut recourir gratuitement à un médiateur de la consommation en vue de la résolution amiable d'un litige. Médiateur désigné&nbsp;: <strong>[nom du médiateur]</strong>, [adresse], [site web]. <span class="todo-inline">⚠️ L'adhésion à un dispositif de médiation est obligatoire&nbsp;: à compléter.</span></p>
+
+      <h3>2.10 Droit applicable</h3>
+      <p>Les présentes CGV sont soumises au droit français. En cas de litige, une solution amiable sera recherchée avant toute action judiciaire. Le client peut également utiliser la plateforme européenne de Règlement en Ligne des Litiges&nbsp;: <a href="https://ec.europa.eu/consumers/odr" class="inline-link" target="_blank" rel="noopener">ec.europa.eu/consumers/odr</a>.</p>
     </section>
 
+    <!-- 3. RÉTRACTATION -->
     <section id="retractation">
       <h2>3. Droit de rétractation</h2>
-      <p>Conformément au Code de la consommation, vous disposez d'un délai de <strong>14 jours</strong> à compter de la réception de votre commande pour exercer votre droit de rétractation, sans avoir à justifier de motifs.</p>
-      <p>Pour l'exercer, contactez-nous à [email]. [Précisez les modalités de retour et de remboursement, et qui prend en charge les frais de retour.]</p>
-      <p class="todo">Fournissez aussi le formulaire type de rétractation (modèle réglementaire).</p>
+      <p>Conformément aux articles L.221-18 et suivants du Code de la consommation, vous disposez d'un délai de <strong>14 jours</strong> à compter de la réception de votre commande pour exercer votre droit de rétractation, sans avoir à motiver votre décision.</p>
+      <p><strong>Comment l'exercer&nbsp;:</strong> notifiez-nous votre décision par une déclaration dénuée d'ambiguïté (e-mail à <a href="mailto:contact@tuboclair.com" class="inline-link">contact@tuboclair.com</a>), ou utilisez le formulaire type ci-dessous.</p>
+      <p><strong>Retour&nbsp;:</strong> renvoyez le produit sans retard injustifié et au plus tard 14 jours après nous avoir communiqué votre décision. Les frais de retour sont [à votre charge / à notre charge — à préciser]. Le produit doit être retourné [dans son état d'origine].</p>
+      <p><strong>Remboursement&nbsp;:</strong> nous vous remboursons la totalité des sommes versées, au plus tard 14 jours après avoir été informés de votre décision (nous pouvons différer le remboursement jusqu'à récupération du bien).</p>
+      <div class="retract-form">
+        <p><strong>Formulaire type de rétractation</strong> (à nous renvoyer complété uniquement si vous souhaitez vous rétracter)&nbsp;:</p>
+        <p>À l'attention de [Dénomination], [adresse], [email]&nbsp;:<br />
+        Je vous notifie par la présente ma rétractation du contrat portant sur la commande n° […] ci-dessous&nbsp;:<br />
+        — Commandé le […] / reçu le […]<br />
+        — Nom du consommateur&nbsp;: […]<br />
+        — Adresse du consommateur&nbsp;: […]<br />
+        — Date&nbsp;: […]</p>
+      </div>
     </section>
 
+    <!-- 4. CONFIDENTIALITÉ -->
     <section id="confidentialite">
       <h2>4. Politique de confidentialité (RGPD)</h2>
-      <p>Les données collectées (nom, adresse, e-mail, téléphone) servent uniquement au traitement et à l'expédition de votre commande.</p>
-      <p>Le paiement est traité par <strong>Stripe</strong> ; aucune donnée de carte bancaire n'est stockée sur ce site.</p>
-      <p>Vous disposez d'un droit d'accès, de rectification et de suppression de vos données en écrivant à [email].</p>
-      <p class="todo">Complétez : base légale, durée de conservation, sous-traitants (Stripe, transporteur, outils pub/analytics), cookies, et le bandeau de consentement cookies si vous utilisez le pixel Meta/TikTok.</p>
+      <p><strong>Responsable de traitement&nbsp;:</strong> [Dénomination], [adresse], <a href="mailto:contact@tuboclair.com" class="inline-link">contact@tuboclair.com</a>.</p>
+      <p><strong>Données collectées&nbsp;:</strong> identité (prénom, nom), coordonnées (e-mail, adresse de livraison), informations de commande, et — si vous laissez un avis — le contenu et l'éventuelle photo transmise. <strong>Aucune donnée de carte bancaire</strong> n'est traitée ni stockée par nos soins (paiement géré par Stripe).</p>
+      <p><strong>Finalités et bases légales&nbsp;:</strong> traitement et expédition des commandes et service client (exécution du contrat)&nbsp;; obligations comptables et légales (obligation légale)&nbsp;; publication d'avis clients et communications marketing éventuelles (consentement).</p>
+      <p><strong>Destinataires / sous-traitants&nbsp;:</strong> Stripe (paiement), [transporteur — ex. Colissimo/Mondial Relay] (livraison), Netlify (hébergement), 17TRACK (suivi de colis), [outil d'e-mailing éventuel], et, si activés, Meta/TikTok (mesure publicitaire). Certains prestataires étant situés hors UE (Stripe, Netlify — États-Unis), les transferts sont encadrés par les garanties appropriées (clauses contractuelles types).</p>
+      <p><strong>Durée de conservation&nbsp;:</strong> les données de commande sont conservées le temps nécessaire à la relation commerciale puis archivées conformément aux obligations légales (notamment comptables&nbsp;: [durée]).</p>
+      <p><strong>Vos droits&nbsp;:</strong> accès, rectification, effacement, limitation, opposition et portabilité. Exercez-les à <a href="mailto:contact@tuboclair.com" class="inline-link">contact@tuboclair.com</a>. Vous pouvez introduire une réclamation auprès de la CNIL (cnil.fr).</p>
     </section>
 
-    <p style="margin-top:40px"><a href="/">← Retour à la boutique</a></p>
+    <!-- 5. COOKIES -->
+    <section id="cookies">
+      <h2>5. Cookies</h2>
+      <p>Le site utilise des cookies nécessaires à son fonctionnement. Si vous activez des outils de mesure ou de publicité (par exemple le pixel Meta ou TikTok), des cookies de suivi seront déposés <strong>uniquement après votre consentement</strong>, recueilli via un bandeau dédié. <span class="todo-inline">⚠️ Si vous installez un pixel publicitaire, un bandeau de consentement cookies conforme est obligatoire.</span></p>
+    </section>
+
+    <p style="margin-top:40px"><a href="/" class="inline-link">← Retour à la boutique</a></p>
   </main>
+
+  <footer class="site-footer">
+    <p class="copyright" style="text-align:center">© <span id="year"></span> Tuboclair™. Tous droits réservés.</p>
+  </footer>
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
 </body>
 </html>

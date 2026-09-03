@@ -11,6 +11,7 @@
   <meta property="og:type" content="product" />
   <meta property="og:image" content="img/produit-1.jpg" />
 
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
@@ -29,8 +30,9 @@
       <span class="logo-tubo">Tubo</span><span class="logo-clair">clair</span><span class="logo-star" aria-hidden="true">✦</span>
     </a>
     <nav class="header-nav">
-      <a href="#avis">Avis</a>
-      <a href="#service">Service client</a>
+      <a href="avis.html">Avis</a>
+      <a href="suivre-commande.html">Suivre mon colis</a>
+      <a href="#service">Service</a>
       <a href="#offre" class="header-cta">Commander</a>
     </nav>
   </header>
@@ -58,7 +60,7 @@
         <h1 class="product-title">Déboucheur à tambour Tuboclair™</h1>
         <p class="product-sub">Câble acier 7,6 m · Utilisation manuelle · Sans produits chimiques</p>
 
-        <a href="#avis" class="rating-link" aria-label="Lire les avis clients">
+        <a href="avis.html" class="rating-link" aria-label="Lire les avis clients">
           <span class="stars" aria-hidden="true">★★★★★</span> Lire les avis clients
         </a>
 
@@ -85,7 +87,7 @@
             <input id="qty" type="text" inputmode="numeric" value="1" readonly aria-label="Quantité" />
             <button type="button" id="qty-plus" aria-label="Ajouter un">+</button>
           </div>
-          <button id="buy-btn" class="btn btn-cta btn-buy">Ajouter au panier</button>
+          <button id="buy-btn" class="btn btn-cta btn-buy">Commander maintenant</button>
         </div>
         <p id="buy-error" class="buy-error" hidden>Un souci est survenu. Réessayez dans un instant.</p>
 
@@ -177,20 +179,17 @@
             <li><strong>Suivi proactif</strong> — vous recevez votre numéro de suivi dès l'expédition</li>
             <li><strong>Un humain, en français</strong> — un accompagnement du début à la fin</li>
           </ul>
-          <a class="service-mail" href="mailto:contact@VOTRE-DOMAINE.fr">contact@VOTRE-DOMAINE.fr</a>
+          <a class="service-mail" href="mailto:contact@tuboclair.com">contact@tuboclair.com</a>
         </div>
       </div>
     </section>
 
-    <!-- ===== AVIS CLIENTS ===== -->
+    <!-- ===== AVIS CLIENTS (aperçu) ===== -->
     <section class="section reviews" id="avis">
       <h2>Avis clients</h2>
       <!--
-        ⚠️ À REMPLIR AVEC DE VRAIS AVIS.
-        En France, les faux avis sont une pratique commerciale trompeuse (sanctionnable),
-        et republier les avis d'une autre boutique comme s'ils étaient les vôtres l'est aussi.
-        Remplacez ces cartes par de VRAIS avis de VOS clients (collectés après achat).
-        Mettez à jour la note moyenne et le nombre d'avis une fois qu'ils sont réels.
+        ⚠️ Les vrais avis (avec photo, laissés par vos clients) se gèrent sur la page avis.html.
+        Ici, affichez 2-3 de vos meilleurs avis publiés une fois que vous en avez.
       -->
       <div class="reviews-summary">
         <span class="stars big" aria-hidden="true">★★★★★</span>
@@ -200,6 +199,9 @@
         <blockquote class="review placeholder-review"><p>« [Avis à remplacer par un vrai témoignage client vérifié.] »</p><cite>— Prénom, ville</cite></blockquote>
         <blockquote class="review placeholder-review"><p>« [Avis à remplacer par un vrai témoignage client vérifié.] »</p><cite>— Prénom, ville</cite></blockquote>
         <blockquote class="review placeholder-review"><p>« [Avis à remplacer par un vrai témoignage client vérifié.] »</p><cite>— Prénom, ville</cite></blockquote>
+      </div>
+      <div class="reviews-cta">
+        <a href="avis.html" class="btn btn-cta">Voir tous les avis · Laisser le vôtre</a>
       </div>
     </section>
 
@@ -252,11 +254,13 @@
         <p class="footer-note">Débouchez vos canalisations vous-même, sans plombier ni produits chimiques.</p>
       </div>
       <nav class="footer-links">
+        <a href="suivre-commande.html">Suivre mon colis</a>
+        <a href="avis.html">Avis clients</a>
         <a href="legal.html#mentions">Mentions légales</a>
         <a href="legal.html#cgv">CGV</a>
         <a href="legal.html#confidentialite">Confidentialité</a>
         <a href="legal.html#retractation">Rétractation</a>
-        <a href="mailto:contact@VOTRE-DOMAINE.fr">Contact</a>
+        <a href="mailto:contact@tuboclair.com">Contact</a>
       </nav>
     </div>
     <p class="copyright">© <span id="year"></span> Tuboclair™. Tous droits réservés.</p>

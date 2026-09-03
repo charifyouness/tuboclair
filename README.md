@@ -79,3 +79,28 @@ Pour vendre en France, tu dois **compléter `legal.html`** :
 - **Webhook Stripe** (`checkout.session.completed`) → une 2e Netlify Function pour recevoir un e-mail à chaque commande (via Resend/SendGrid) au lieu de surveiller le Dashboard.
 - **Pixel Meta / TikTok** + événement `Purchase` déclenché sur `merci.html` (avec consentement cookies).
 - **Automatisation fulfillment** : passe sur WooCommerce (headless possible) pour brancher DSers, ou migre le tout.
+
+---
+
+## 🆕 Cette version (nouvelles pages & fonctions)
+
+- **Favicon** : `favicon.svg` (carré orange + « T »), déjà référencé sur toutes les pages.
+- **E-mail** : `contact@tuboclair.com` remplace partout l'ancien placeholder.
+- **Checkout à friction minimale** : le bouton « Commander maintenant » envoie directement vers **Stripe Checkout** (page de paiement hébergée, sécurisée). On ne demande que l'**e-mail + l'adresse de livraison** (le nom en fait partie) — **aucun compte** à créer, plus de champ téléphone. Wallets express (Apple/Google Pay) à activer dans ton Dashboard Stripe.
+  - ⚠️ Pour un produit **physique**, l'adresse de livraison reste obligatoire (impossible d'expédier avec juste nom + e-mail). C'est le strict minimum.
+  - Pour que ça encaisse pour de vrai : passe la clé Stripe en **`sk_live_…`** dans Netlify.
+
+### 📦 Page « Suivre mon colis » (`suivre-commande.html`)
+Le client saisit son numéro de suivi → le suivi **étape par étape** s'ouvre via **17TRACK** (multi-transporteurs : Colissimo, Mondial Relay, Chronopost…). **Fonctionne immédiatement, sans inscription.**
+- *Option (plus tard)* : pour un suivi **100 % sur ton site** (sans onglet externe), inscris-toi gratuitement sur 17track.net, récupère le widget « Buyer » et colle son snippet dans la page.
+
+### ⭐ Page « Avis clients » (`avis.html`)
+Formulaire pour laisser un avis **avec photo, sans compte**, mais **numéro de commande obligatoire**. Géré par **Netlify Forms** (aucun serveur à coder) :
+1. Après déploiement, va dans Netlify → onglet **« Forms »** : tu y verras chaque avis reçu (avec la photo).
+2. Configure une **notification e-mail** vers `contact@tuboclair.com`.
+3. Tu **modères** : tu vérifies le numéro de commande (contre tes paiements Stripe), puis tu publies l'avis en l'ajoutant à la main dans la liste (`<article class="review-card">`) de `avis.html`.
+- Cette vérification manuelle est ce qui rend le « n° de commande obligatoire » utile, et garde tes avis **authentiques** (obligation légale en France).
+- *Option (plus tard)* : affichage 100 % automatique des avis via une base (Supabase) — à faire quand le volume le justifie.
+
+### ⚖️ Pages légales (`legal.html`)
+Version complète (mentions légales, CGV, rétractation 14 j + formulaire type, RGPD, cookies). **À compléter** : remplace tous les `[crochets]` par tes infos (SASU, SIREN, RCS, TVA…) et **désigne un médiateur de la consommation** (obligatoire). Je ne suis pas juriste : fais relire les CGV.

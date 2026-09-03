@@ -37,10 +37,9 @@ exports.handler = async (event) => {
           quantity,
         },
       ],
-      // On collecte l'adresse (indispensable pour expédier) + le téléphone.
-      shipping_address_collection: { allowed_countries: ['FR', 'BE', 'LU', 'MC'] },
-      phone_number_collection: { enabled: true },
-      // Livraison offerte : on ne met pas de frais de port.
+      // On collecte l'adresse (indispensable pour expédier). L'e-mail est demandé
+      // automatiquement par Stripe. Aucun compte à créer, aucun champ superflu.
+      shipping_address_collection: { allowed_countries: ['FR', 'BE', 'LU', 'MC', 'CH'] },
       success_url: `${origin}/merci.html?session_id={CHECKOUT_SESSION_ID}`,
       cancel_url: `${origin}/#offre`,
       locale: 'fr',

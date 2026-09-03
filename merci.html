@@ -3,19 +3,17 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Merci pour votre commande — TuboClair™</title>
+  <title>Merci pour votre commande — Tuboclair™</title>
   <meta name="robots" content="noindex" />
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;600;700;800;900&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
   <style>
     .thanks{max-width:620px;margin:0 auto;padding:80px 20px;text-align:center}
-    .check{width:84px;height:84px;border-radius:50%;background:var(--ok);color:#fff;
-      display:flex;align-items:center;justify-content:center;font-size:2.6rem;margin:0 auto 24px}
-    .thanks p{font-size:1.08rem;margin:14px auto;max-width:46ch}
-    .next{background:var(--bg-soft);border:1px solid var(--line);border-radius:var(--radius);
-      padding:22px;margin:28px 0;text-align:left}
+    .thanks p{font-size:1.06rem;margin:14px auto;max-width:46ch;color:var(--ink-soft)}
+    .next{background:var(--bg-soft);border:1px solid var(--line);border-radius:var(--radius);padding:22px;margin:28px 0;text-align:left}
     .next h2{text-align:left;font-size:1.15rem;margin-bottom:10px}
     .next ol{margin-left:20px;color:var(--muted)}
     .next li{margin:6px 0}
@@ -23,12 +21,12 @@
 </head>
 <body>
   <header class="site-header">
-    <a href="/" class="brand">TuboClair<span class="tm">™</span></a>
+    <a href="/" class="logo"><span class="logo-tubo">Tubo</span><span class="logo-clair">clair</span><span class="logo-star" aria-hidden="true">✦</span></a>
   </header>
 
   <main class="thanks">
-    <div class="check">✔</div>
-    <h1>Merci, votre commande est confirmée&nbsp;!</h1>
+    <div class="check-badge" aria-hidden="true">✔</div>
+    <h1 class="page-title">Merci, votre commande est confirmée&nbsp;!</h1>
     <p>Un e-mail de confirmation vient de vous être envoyé par notre système de paiement sécurisé.</p>
 
     <div class="next">
@@ -36,12 +34,12 @@
       <ol>
         <li>Votre kit est préparé et expédié <strong>de France sous 24&nbsp;h</strong>.</li>
         <li>Vous recevez un <strong>numéro de suivi</strong> par e-mail dès l'expédition.</li>
-        <li>Livraison estimée sous <strong>3 à 4 jours ouvrés</strong>.</li>
+        <li>Vous pourrez suivre votre colis à tout moment sur notre page <a href="suivre-commande.html" class="inline-link">Suivre mon colis</a>.</li>
       </ol>
     </div>
 
-    <p>Une question&nbsp;? Écrivez-nous à <a href="mailto:contact@VOTRE-DOMAINE.fr" style="color:var(--brand);font-weight:700">contact@VOTRE-DOMAINE.fr</a>.</p>
-    <p><a href="/" class="btn btn-cta">Retour à l'accueil</a></p>
+    <p>Une question&nbsp;? Écrivez-nous à <a href="mailto:contact@tuboclair.com" class="inline-link">contact@tuboclair.com</a> — on répond vite.</p>
+    <p><a href="/" class="btn btn-cta">Retour à la boutique</a></p>
   </main>
 </body>
 </html>
