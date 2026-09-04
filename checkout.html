@@ -49,7 +49,7 @@
     // ⚠️ À REMPLACER par votre clé PUBLIABLE Stripe (commence par pk_).
     //    pk_test_… pour tester, puis pk_live_… en production.
     //    (La clé publiable est publique : elle peut rester dans le code.)
-    const STRIPE_PK = 'pk_test_VOTRE_CLE_PUBLIABLE';
+    const STRIPE_PK = pk_live_2WVJY0icQqDWew7VWsrXeq2d ;
 
     var params = new URLSearchParams(location.search);
     var qty = Math.min(Math.max(parseInt(params.get('qty'), 10) || 1, 1), 5);
