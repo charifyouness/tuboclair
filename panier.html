@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Suivre mon colis — Tuboclair™</title>
-  <meta name="description" content="Suivez votre commande Tuboclair étape par étape. Entrez votre numéro de suivi pour voir où en est votre colis." />
+  <title>Mon panier — Tuboclair™</title>
+  <meta name="robots" content="noindex" />
   <link rel="icon" type="image/svg+xml" href="favicon.svg" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -14,8 +14,6 @@
 <body>
   <!-- Fine bande -->
   <div class="topbar">Livraison suivie offerte · Expédié de France 🇫🇷</div>
-
-  <!-- En-tête -->
   <header class="site-header">
     <button class="burger" id="burger" aria-label="Ouvrir le menu" aria-expanded="false"><span></span><span></span><span></span></button>
     <a href="/" class="logo" aria-label="Tuboclair, accueil"><span class="logo-tubo">Tubo</span><span class="logo-clair">clair</span><span class="logo-star" aria-hidden="true">✦</span></a>
@@ -24,8 +22,6 @@
       <a href="panier.html" class="icon-link" aria-label="Panier"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 7h14l-1.4 9.2a2 2 0 0 1-2 1.7H9.4a2 2 0 0 1-2-1.7L6 7z"/><path d="M6 7 5.2 4H2.5"/><circle cx="9.5" cy="20.5" r="1.3"/><circle cx="17" cy="20.5" r="1.3"/></svg></a>
     </div>
   </header>
-
-  <!-- Menu coulissant -->
   <div class="menu-overlay" id="menu-overlay" hidden></div>
   <nav class="slide-menu" id="slide-menu" aria-label="Menu principal">
     <button class="menu-close" id="menu-close" aria-label="Fermer le menu">&times;</button>
@@ -44,19 +40,39 @@
   </nav>
 
   <main>
-    <section class="section narrow tracking">
-      <h1 class="page-title">Suivre mon colis</h1>
-      <p class="page-lead">Entrez le numéro de suivi reçu par e-mail à l'expédition de votre commande. Vous verrez l'avancement de votre colis étape par étape.</p>
+    <section class="section narrow">
+      <h1 class="page-title">Mon panier</h1>
+      <div class="cart-wrap">
+        <div class="cart-line">
+          <img src="img/produit-1.jpg" alt="Déboucheur à tambour Tuboclair" />
+          <div>
+            <div class="cart-name">Déboucheur à tambour Tuboclair™</div>
+            <div class="cart-sub">Câble acier 7,6 m · gants · guide — livraison offerte</div>
+            <div class="qty" aria-label="Quantité" style="margin-top:10px">
+              <button type="button" id="qty-minus" aria-label="Retirer un">–</button>
+              <input id="qty" type="text" inputmode="numeric" value="1" readonly aria-label="Quantité" />
+              <button type="button" id="qty-plus" aria-label="Ajouter un">+</button>
+            </div>
+          </div>
+          <div class="cart-line-price" id="cart-line-val">54,90 €</div>
+        </div>
 
-      <form class="track-form" id="track-form">
-        <input type="text" id="track-number" name="track-number" placeholder="Ex : LX123456789FR" autocomplete="off" required />
-        <button type="submit" class="btn btn-cta">Suivre</button>
-      </form>
-      <p class="track-hint">Le suivi s'ouvre dans un nouvel onglet, sur notre partenaire de suivi multi-transporteurs, qui reconnaît automatiquement La&nbsp;Poste/Colissimo, Mondial&nbsp;Relay, Chronopost, etc.</p>
+        <div class="cart-total">
+          <span>Total <span class="cart-sub">(livraison incluse)</span></span>
+          <b id="cart-total-val">54,90 €</b>
+        </div>
 
-      <div class="track-help">
-        <h2>Vous n'avez pas encore votre numéro de suivi&nbsp;?</h2>
-        <p>Il vous est envoyé par e-mail dès l'expédition (sous 24&nbsp;h après la commande). Si vous ne le trouvez pas, vérifiez vos spams, ou écrivez-nous à <a href="mailto:contact@tuboclair.com" class="inline-link">contact@tuboclair.com</a> avec votre numéro de commande&nbsp;: on vous répond vite.</p>
+        <div class="cart-actions">
+          <button id="buy-btn" class="btn btn-cta" style="font-size:1.1rem;padding:16px">Passer au paiement sécurisé</button>
+          <p id="buy-error" class="buy-error" hidden>Un souci est survenu. Réessayez dans un instant.</p>
+          <a href="/" class="inline-link" style="text-align:center">← Continuer mes achats</a>
+        </div>
+
+        <ul class="cart-reassure">
+          <li>🔒 Paiement sécurisé — CB, Apple Pay, Google Pay (aucun compte requis)</li>
+          <li>🇫🇷 Expédié de France — reçu en 3 à 4 jours, suivi inclus</li>
+          <li>↩️ Satisfait ou remboursé 30 jours</li>
+        </ul>
       </div>
     </section>
   </main>
@@ -73,23 +89,40 @@
         <a href="legal.html#mentions">Mentions légales</a>
         <a href="legal.html#cgv">CGV</a>
         <a href="legal.html#confidentialite">Confidentialité</a>
-        <a href="legal.html#retractation">Rétractation</a>
         <a href="mailto:contact@tuboclair.com">Contact</a>
       </nav>
     </div>
     <p class="copyright">© <span id="year"></span> Tuboclair™. Tous droits réservés.</p>
   </footer>
 
-  <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
-    document.getElementById('track-form').addEventListener('submit', function (e) {
-      e.preventDefault();
-      var n = document.getElementById('track-number').value.trim().replace(/\s+/g, '');
-      if (!n) return;
-      // Suivi multi-transporteurs, étape par étape, sans inscription.
-      window.open('https://t.17track.net/fr#nums=' + encodeURIComponent(n), '_blank', 'noopener');
-    });
-  </script>
   <script src="menu.js"></script>
+  <script>
+    (function () {
+      var PRICE = 54.90;
+      var qtyEl = document.getElementById('qty');
+      var totalEl = document.getElementById('cart-total-val');
+      var lineEl = document.getElementById('cart-line-val');
+      function q(){ return Math.min(Math.max(parseInt(qtyEl.value,10)||1,1),5); }
+      function money(v){ return v.toFixed(2).replace('.',',') + ' €'; }
+      function render(){ var t = money(PRICE*q()); totalEl.textContent = t; lineEl.textContent = t; }
+      document.getElementById('qty-minus').onclick = function(){ qtyEl.value = Math.max(q()-1,1); render(); };
+      document.getElementById('qty-plus').onclick  = function(){ qtyEl.value = Math.min(q()+1,5); render(); };
+      render();
+
+      var buy = document.getElementById('buy-btn');
+      var err = document.getElementById('buy-error');
+      buy.addEventListener('click', async function(){
+        if (err) err.hidden = true;
+        var o = buy.textContent; buy.disabled = true; buy.textContent = 'Redirection vers le paiement…';
+        try {
+          var res = await fetch('/.netlify/functions/create-checkout', {
+            method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify({ quantity: q() })
+          });
+          if (!res.ok) throw 0; var data = await res.json(); if (!data.url) throw 0;
+          window.location.href = data.url;
+        } catch(e) { buy.disabled = false; buy.textContent = o; if (err) err.hidden = false; }
+      });
+    })();
+  </script>
 </body>
 </html>

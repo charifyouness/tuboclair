@@ -18,29 +18,41 @@
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-
-  <!-- Barre d'annonce -->
-  <div class="announce">
-    <span>🇫🇷 Expédié de France</span><i></i><span>Livraison suivie <strong>offerte</strong></span><i></i><span>Reçu en 3-4 jours</span>
-  </div>
+  <!-- Fine bande -->
+  <div class="topbar">Livraison suivie offerte · Expédié de France 🇫🇷</div>
 
   <!-- En-tête -->
   <header class="site-header">
-    <a href="/" class="logo" aria-label="Tuboclair, accueil">
-      <span class="logo-tubo">Tubo</span><span class="logo-clair">clair</span><span class="logo-star" aria-hidden="true">✦</span>
-    </a>
-    <nav class="header-nav">
-      <a href="avis.html">Avis</a>
-      <a href="suivre-commande.html">Suivre mon colis</a>
-      <a href="#service">Service</a>
-      <a href="#offre" class="header-cta">Commander</a>
-    </nav>
+    <button class="burger" id="burger" aria-label="Ouvrir le menu" aria-expanded="false"><span></span><span></span><span></span></button>
+    <a href="/" class="logo" aria-label="Tuboclair, accueil"><span class="logo-tubo">Tubo</span><span class="logo-clair">clair</span><span class="logo-star" aria-hidden="true">✦</span></a>
+    <div class="header-icons">
+      <a href="compte.html" class="icon-link" aria-label="Mon compte"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="3.6"/><path d="M4.5 20.5c0-4 3.4-6.5 7.5-6.5s7.5 2.5 7.5 6.5"/></svg></a>
+      <a href="panier.html" class="icon-link" aria-label="Panier"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 7h14l-1.4 9.2a2 2 0 0 1-2 1.7H9.4a2 2 0 0 1-2-1.7L6 7z"/><path d="M6 7 5.2 4H2.5"/><circle cx="9.5" cy="20.5" r="1.3"/><circle cx="17" cy="20.5" r="1.3"/></svg></a>
+    </div>
   </header>
+
+  <!-- Menu coulissant -->
+  <div class="menu-overlay" id="menu-overlay" hidden></div>
+  <nav class="slide-menu" id="slide-menu" aria-label="Menu principal">
+    <button class="menu-close" id="menu-close" aria-label="Fermer le menu">&times;</button>
+    <a href="/">Accueil</a>
+    <a href="avis.html">Avis clients</a>
+    <a href="suivre-commande.html">Suivre mon colis</a>
+    <a href="/#service">Service client</a>
+    <a href="compte.html">Mon compte</a>
+    <a href="panier.html">Panier</a>
+    <a href="/#offre" class="menu-cta">Commander</a>
+    <div class="menu-legal">
+      <a href="legal.html#mentions">Mentions légales</a>
+      <a href="legal.html#cgv">CGV</a>
+      <a href="legal.html#confidentialite">Confidentialité</a>
+    </div>
+  </nav>
 
   <main>
 
     <!-- ===== FICHE PRODUIT ===== -->
-    <section class="product">
+    <section class="product" id="offre">
       <!-- Galerie -->
       <div class="gallery">
         <div class="gallery-main">
@@ -71,8 +83,8 @@
         </p>
 
         <ul class="buybox-points">
-          <li>Câble acier flexible de <strong>7,6 mètres</strong></li>
-          <li>Poignée ergonomique à <strong>manivelle</strong> — aucune force nécessaire</li>
+          <li>Câble acier flexible de 7,6 mètres</li>
+          <li>Poignée ergonomique à manivelle — aucune force nécessaire</li>
           <li>Sans danger pour vos canalisations, contrairement aux produits chimiques</li>
         </ul>
 
@@ -276,5 +288,6 @@
   </div>
 
   <script src="main.js"></script>
+  <script src="menu.js"></script>
 </body>
 </html>
