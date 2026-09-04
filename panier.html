@@ -110,17 +110,8 @@
       render();
 
       var buy = document.getElementById('buy-btn');
-      var err = document.getElementById('buy-error');
-      buy.addEventListener('click', async function(){
-        if (err) err.hidden = true;
-        var o = buy.textContent; buy.disabled = true; buy.textContent = 'Redirection vers le paiement…';
-        try {
-          var res = await fetch('/.netlify/functions/create-checkout', {
-            method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify({ quantity: q() })
-          });
-          if (!res.ok) throw 0; var data = await res.json(); if (!data.url) throw 0;
-          window.location.href = data.url;
-        } catch(e) { buy.disabled = false; buy.textContent = o; if (err) err.hidden = false; }
+      buy.addEventListener('click', function () {
+        window.location.href = 'checkout.html?qty=' + q();
       });
     })();
   </script>

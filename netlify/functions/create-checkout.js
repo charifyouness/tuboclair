@@ -1,6 +1,6 @@
-// Netlify Function : crée une session Stripe Checkout.
-// La clé secrète Stripe vit UNIQUEMENT ici (côté serveur), jamais dans le front.
-// Variable d'environnement requise sur Netlify : STRIPE_SECRET_KEY
+// Netlify Function : crée une session Stripe Checkout INTÉGRÉE (embedded).
+// Le paiement reste sur ton site (pas de redirection vers checkout.stripe.com).
+// Variable d'environnement requise : STRIPE_SECRET_KEY (sk_test_… puis sk_live_…)
 
 const Stripe = require('stripe');
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
@@ -13,49 +13,43 @@ exports.handler = async (event) => {
   try {
     const body = JSON.parse(event.body || '{}');
     let quantity = parseInt(body.quantity, 10) || 1;
-    quantity = Math.min(Math.max(quantity, 1), 5); // sécurité : 1 à 5
+    quantity = Math.min(Math.max(quantity, 1), 5);
 
     const origin =
       event.headers.origin ||
       (event.headers.host ? `https://${event.headers.host}` : '');
 
     const session = await stripe.checkout.sessions.create({
+      ui_mode: 'embedded', // <-- checkout intégré, reste sur ton domaine
       mode: 'payment',
-      // Astuce : laissez Stripe afficher CB + wallets selon l'appareil.
-      // (Activez Apple Pay / Google Pay dans votre Dashboard Stripe.)
       line_items: [
         {
           price_data: {
             currency: 'eur',
             product_data: {
               name: 'Déboucheur à tambour Tuboclair™',
-              description:
-                'Déboucheur à tambour + câble acier 7,6 m + gants + guide d\'utilisation',
+              description: 'Déboucheur à tambour + câble acier 7,6 m + gants + guide d\'utilisation',
             },
-            unit_amount: 5490, // 54,90 € en centimes — changez ici pour ajuster le prix
+            unit_amount: 5490, // 54,90 €
           },
           quantity,
         },
       ],
-      // On collecte l'adresse (indispensable pour expédier). L'e-mail est demandé
-      // automatiquement par Stripe. Aucun compte à créer, aucun champ superflu.
       shipping_address_collection: { allowed_countries: ['FR', 'BE', 'LU', 'MC', 'CH'] },
-      success_url: `${origin}/merci.html?session_id={CHECKOUT_SESSION_ID}`,
-      cancel_url: `${origin}/#offre`,
+      // Les moyens de paiement affichés sont ceux ACTIVÉS dans ton Dashboard Stripe
+      // (Réglages → Moyens de paiement). Désactive Klarna/Bancontact/EPS/Link, garde
+      // Carte (+ Apple/Google Pay) et active PayPal. Pas besoin de toucher au code.
+      return_url: `${origin}/merci.html?session_id={CHECKOUT_SESSION_ID}`,
       locale: 'fr',
-      // E-mail de reçu automatique envoyé par Stripe (activez-le dans le Dashboard).
     });
 
     return {
       statusCode: 200,
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ url: session.url }),
+      body: JSON.stringify({ clientSecret: session.client_secret }),
     };
   } catch (err) {
     console.error('Stripe error:', err);
-    return {
-      statusCode: 500,
-      body: JSON.stringify({ error: err.message }),
-    };
+    return { statusCode: 500, body: JSON.stringify({ error: err.message }) };
   }
 };

@@ -24,32 +24,11 @@ function setQty(v) { qtyInput.value = Math.min(Math.max(v, 1), 5); }
 if (qtyMinus) qtyMinus.addEventListener('click', () => setQty(getQty() - 1));
 if (qtyPlus) qtyPlus.addEventListener('click', () => setQty(getQty() + 1));
 
-// --- Paiement : crée une session Stripe Checkout puis redirige ---
+// --- Bouton commander : va vers le checkout intégré (sur le site) ---
 const buyBtn = document.getElementById('buy-btn');
-const buyError = document.getElementById('buy-error');
-
 if (buyBtn) {
-  buyBtn.addEventListener('click', async () => {
-    buyError.hidden = true;
-    const original = buyBtn.textContent;
-    buyBtn.disabled = true;
-    buyBtn.textContent = 'Redirection vers le paiement…';
-
-    try {
-      const res = await fetch('/.netlify/functions/create-checkout', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ quantity: getQty() }),
-      });
-      if (!res.ok) throw new Error('checkout_failed');
-      const data = await res.json();
-      if (!data.url) throw new Error('no_url');
-      window.location.href = data.url; // -> page de paiement Stripe
-    } catch (err) {
-      buyBtn.disabled = false;
-      buyBtn.textContent = original;
-      buyError.hidden = false;
-    }
+  buyBtn.addEventListener('click', function () {
+    window.location.href = 'checkout.html?qty=' + getQty();
   });
 }
 

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Paiement sécurisé — Tuboclair™</title>
+  <meta name="robots" content="noindex" />
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <script src="https://js.stripe.com/v3/"></script>
+</head>
+<body>
+  <!-- Header minimal (checkout = zéro distraction) -->
+  <header class="checkout-header">
+    <a href="/" class="logo" aria-label="Tuboclair, accueil"><span class="logo-tubo">Tubo</span><span class="logo-clair">clair</span><span class="logo-star" aria-hidden="true">✦</span></a>
+    <span class="secure-badge">🔒 Paiement 100% sécurisé</span>
+  </header>
+
+  <main class="checkout-page">
+    <!-- Récap commande + réassurance -->
+    <aside class="checkout-summary">
+      <a href="/" class="checkout-back">← Retour à la boutique</a>
+      <h1 class="checkout-h">Votre commande</h1>
+      <div class="checkout-item">
+        <img src="img/produit-1.jpg" alt="Déboucheur à tambour Tuboclair" />
+        <div>
+          <div class="cart-name">Déboucheur à tambour Tuboclair™</div>
+          <div class="cart-sub">Quantité : <span id="sum-qty">1</span> · livraison offerte</div>
+        </div>
+      </div>
+      <div class="checkout-total"><span>Total</span><b id="sum-total">54,90 €</b></div>
+      <ul class="cart-reassure">
+        <li>🇫🇷 Expédié de France — reçu en 3 à 4 jours, suivi inclus</li>
+        <li>↩️ Satisfait ou remboursé pendant 30 jours</li>
+        <li>✉️ Service client réactif — <a href="mailto:contact@tuboclair.com" class="inline-link">contact@tuboclair.com</a></li>
+      </ul>
+    </aside>
+
+    <!-- Formulaire de paiement intégré (Stripe) -->
+    <section class="checkout-pay">
+      <div id="checkout"><p class="checkout-loading">Chargement du paiement sécurisé…</p></div>
+    </section>
+  </main>
+
+  <script>
+    // ⚠️ À REMPLACER par votre clé PUBLIABLE Stripe (commence par pk_).
+    //    pk_test_… pour tester, puis pk_live_… en production.
+    //    (La clé publiable est publique : elle peut rester dans le code.)
+    const STRIPE_PK = 'pk_test_VOTRE_CLE_PUBLIABLE';
+
+    var params = new URLSearchParams(location.search);
+    var qty = Math.min(Math.max(parseInt(params.get('qty'), 10) || 1, 1), 5);
+    var PRICE = 54.90;
+    document.getElementById('sum-qty').textContent = qty;
+    document.getElementById('sum-total').textContent = (PRICE * qty).toFixed(2).replace('.', ',') + ' €';
+
+    var box = document.getElementById('checkout');
+    if (STRIPE_PK.indexOf('VOTRE_CLE') !== -1) {
+      box.innerHTML = '<p class="buy-error">Configuration requise : renseignez votre clé publiable Stripe (STRIPE_PK) dans checkout.html.</p>';
+    } else {
+      var stripe = Stripe(STRIPE_PK);
+      async function fetchClientSecret() {
+        var res = await fetch('/.netlify/functions/create-checkout', {
+          method: 'POST', headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ quantity: qty })
+        });
+        var data = await res.json();
+        return data.clientSecret;
+      }
+      stripe.initEmbeddedCheckout({ fetchClientSecret })
+        .then(function (checkout) { box.innerHTML = ''; checkout.mount('#checkout'); })
+        .catch(function () {
+          box.innerHTML = '<p class="buy-error">Le paiement est momentanément indisponible. Réessayez, ou écrivez-nous à contact@tuboclair.com.</p>';
+        });
+    }
+  </script>
+</body>
+</html>
