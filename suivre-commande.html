@@ -52,7 +52,10 @@
         <input type="text" id="track-number" name="track-number" placeholder="Ex : LX123456789FR" autocomplete="off" required />
         <button type="submit" class="btn btn-cta">Suivre</button>
       </form>
-      <p class="track-hint">Le suivi s'ouvre dans un nouvel onglet, sur notre partenaire de suivi multi-transporteurs, qui reconnaît automatiquement La&nbsp;Poste/Colissimo, Mondial&nbsp;Relay, Chronopost, etc.</p>
+      <p class="track-hint">Le suivi s'affiche <strong>directement ici</strong>, sans quitter le site. Notre outil multi-transporteurs reconnaît automatiquement La&nbsp;Poste/Colissimo, Mondial&nbsp;Relay, Chronopost, etc.</p>
+
+      <!-- Résultat du suivi (affiché sur la page) -->
+      <div id="YQContainer" class="track-result"></div>
 
       <div class="track-help">
         <h2>Vous n'avez pas encore votre numéro de suivi&nbsp;?</h2>
@@ -80,14 +83,27 @@
     <p class="copyright">© <span id="year"></span> Tuboclair™. Tous droits réservés.</p>
   </footer>
 
+  <script src="//www.17track.net/externalcall.js"></script>
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
     document.getElementById('track-form').addEventListener('submit', function (e) {
       e.preventDefault();
       var n = document.getElementById('track-number').value.trim().replace(/\s+/g, '');
-      if (!n) return;
-      // Suivi multi-transporteurs, étape par étape, sans inscription.
-      window.open('https://t.17track.net/fr#nums=' + encodeURIComponent(n), '_blank', 'noopener');
+      if (n.length < 5) return;
+      // Suivi multi-transporteurs affiché SUR la page (sans quitter le site).
+      if (window.YQV5 && typeof YQV5.trackSingle === 'function') {
+        YQV5.trackSingle({
+          YQ_ContainerId: 'YQContainer',
+          YQ_Height: 560,
+          YQ_Fun: '',
+          YQ_Num: n,
+          YQ_Server: 'www.17track.net'
+        });
+        document.getElementById('YQContainer').scrollIntoView({ behavior: 'smooth', block: 'start' });
+      } else {
+        // Repli si le widget ne charge pas
+        window.open('https://t.17track.net/fr#nums=' + encodeURIComponent(n), '_blank', 'noopener');
+      }
     });
   </script>
   <script src="menu.js"></script>

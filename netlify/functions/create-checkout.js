@@ -30,7 +30,7 @@ exports.handler = async (event) => {
               name: 'Déboucheur à tambour Tuboclair™',
               description: 'Déboucheur à tambour + câble acier 7,6 m + gants + guide d\'utilisation',
             },
-            unit_amount: 5490, // 54,90 €
+            unit_amount: 4990, // 49,90 €
           },
           quantity,
         },

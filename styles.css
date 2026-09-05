@@ -377,3 +377,7 @@ body.menu-open{overflow:hidden}
   .checkout-page{grid-template-columns:0.85fr 1fr;gap:44px}
   .checkout-summary{position:sticky;top:20px}
 }
+
+/* ---- Résultat du suivi de colis (widget intégré) ---- */
+.track-result{max-width:760px;margin:26px auto 0;min-height:0}
+.track-result:not(:empty){border:1px solid var(--line);border-radius:12px;overflow:hidden;background:#fff}

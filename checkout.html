@@ -31,7 +31,7 @@
           <div class="cart-sub">Quantité : <span id="sum-qty">1</span> · livraison offerte</div>
         </div>
       </div>
-      <div class="checkout-total"><span>Total</span><b id="sum-total">54,90 €</b></div>
+      <div class="checkout-total"><span>Total</span><b id="sum-total">49,90 €</b></div>
       <ul class="cart-reassure">
         <li>🇫🇷 Expédié de France — reçu en 3 à 4 jours, suivi inclus</li>
         <li>↩️ Satisfait ou remboursé pendant 30 jours</li>
@@ -49,11 +49,11 @@
     // ⚠️ À REMPLACER par votre clé PUBLIABLE Stripe (commence par pk_).
     //    pk_test_… pour tester, puis pk_live_… en production.
     //    (La clé publiable est publique : elle peut rester dans le code.)
-    const STRIPE_PK = pk_live_2WVJY0icQqDWew7VWsrXeq2d ;
+    const STRIPE_PK = 'pk_live_2WVJY0icQqDWew7VWsrXeq2d';
 
     var params = new URLSearchParams(location.search);
     var qty = Math.min(Math.max(parseInt(params.get('qty'), 10) || 1, 1), 5);
-    var PRICE = 54.90;
+    var PRICE = 49.90;
     document.getElementById('sum-qty').textContent = qty;
     document.getElementById('sum-total').textContent = (PRICE * qty).toFixed(2).replace('.', ',') + ' €';
 
